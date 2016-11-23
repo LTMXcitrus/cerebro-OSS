@@ -1,0 +1,62 @@
+---
+layout: post
+title:  Readme
+categories:
+    - readme
+tags:
+    - readme
+    - cerebro
+thumbnail: /img/cerebro.jpg
+cover: /img/cerebro.jpg
+prism: true
+---
+
+= *Cerebro: notifications for all*
+
+v0.5.0, 09 juin 2016
+:encoding: UTF-8
+:toc: macro
+
+toc::[4]
+
+
+image::https://upload.wikimedia.org/wikipedia/en/9/96/Emma_Frost_using_Cerebro.jpg[Cerebro]
+
+== Introduction
+
+_Cerebro_ is a web dashboard to subscribe, check and manage notifications over Graphite data.
+
+Please check the https://wiki.vsct.fr/display/SUP/Cerebro[Cerebro wiki].
+
+== What is included?
+
+* _services_ : REST webservices over backends, such as Seyren, writen in Spring/Java
+* _dashboard_ : user interface, writen in Angular 2 (TypeScript + Bootstrap)
+
+== User manual
+
+=== How to get the source
+
+The source is free to clone from http://gitlab.socrate.vsct.fr/super/cerebro[GitLab] repository.
+
+    $ git clone git@gitlab.socrate.vsct.fr:super/cerebro.git
+
+=== Prerequisites
+
+Please check the https://wiki.vsct.fr/display/SUP/Cerebro[Cerebro wiki].
+
+=== Using Cerebro
+
+Please check the https://wiki.vsct.fr/display/SUP/Cerebro[Cerebro wiki].
+
+=== Building/running Cerebro
+
+Please check the `DEV` files (in sources) for developer and contributor notes.
+
+=== Support
+
+Please contact VSCT_SUPERVISION_CORETEAM@voyages-sncf.com.
+
+== Registered users, roadmap, etc.
+
+Please check the https://wiki.vsct.fr/display/SUP/Cerebro[Cerebro wiki] for more information about this component users, roadmap, etc.
