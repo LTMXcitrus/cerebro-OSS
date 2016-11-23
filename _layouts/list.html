@@ -106,7 +106,7 @@ layout: base
                 </li>
                 {% for page in (1..paginator.total_pages) %}
                 {% if page == paginator.page %}
-                <li class="active">{% else %}
+                <li class="active teal">{% else %}
                 <li class="waves-effect waves-red">{% endif %}
                     {% if page == paginator.page %}<a>{% elsif page == 1 %}<a href="../">{% else %}<a
                             href="{% if paginator.page != 1 %}../{% endif %}{{ page }}">{% endif %}
