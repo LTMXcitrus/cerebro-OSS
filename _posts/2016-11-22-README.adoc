@@ -2,7 +2,7 @@
 layout: post
 title:  Readme
 categories:
-    - readme
+    - cerebro
 tags:
     - readme
     - cerebro

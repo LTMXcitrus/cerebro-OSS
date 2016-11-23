@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="documentation, cerebro"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/jekyll-avalon-test/favicon.png">
+    <title><strong>DEVELOPER / CONTRIBUTOR NOTES</strong></title>
+    <meta name="description" content="">
+    <link rel="canonical" href="http://joshuaavalon.github.io/jekyll-avalon-test/cerebro/2016/11/23/DEV.html" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" rel="stylesheet"  />
+	<link rel="stylesheet" href="/jekyll-avalon-test/css/main.css">
+	
+	<link rel="stylesheet" href="/jekyll-avalon-test/css/prism.css">
+	
+    <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="/jekyll-avalon-test/feed.xml" />
+</head>
+
+<body>
+<header>
+    <nav>
+        <div class="nav-wrapper teal">
+            <div class="container"><a href="#" data-activates="nav-bar" class="button-collapse"><i class="material-icons">menu</i></a></div>
+            <ul class="right hide-on-med-and-down ">
+                
+                <li>
+                <a href="https://ltmxcitrus.github.io/Umbrella-Super-Vision-OSS/">Home</a>
+                
+                </li>
+                
+                <li>
+                
+                <a href="/jekyll-avalon-test/">Docs</a>
+                
+                </li>
+                
+                <li>
+                
+                <a href="/jekyll-avalon-test/categories.html">Categories</a>
+                
+                </li>
+                
+                <li>
+                
+                <a href="/jekyll-avalon-test/tags.html">Tags</a>
+                
+                </li>
+                
+            </ul>
+            <ul class="side-nav" id="nav-bar">
+                
+                <li><a href="/jekyll-avalon-testhttps://ltmxcitrus.github.io/Umbrella-Super-Vision-OSS/">Home</a></li>
+                
+                <li><a href="/jekyll-avalon-test/">Docs</a></li>
+                
+                <li><a href="/jekyll-avalon-test/categories.html">Categories</a></li>
+                
+                <li><a href="/jekyll-avalon-test/tags.html">Tags</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+</header>
+<br/>
+<main>
+    <div class="container">
+        
+<div class="row">
+<img class='lazy cover' data-original='/jekyll-avalon-test/img/cerebro.jpg'>
+</div>
+
+<div class="row">
+<h2><strong>DEVELOPER / CONTRIBUTOR NOTES</strong></h2>
+<div class="valign-wrapper">
+<div class="author"><img src="/jekyll-avalon-test/img/author.png" class="circle responsive-img"></div> <h5><a href="/jekyll-avalon-test/categories/cerebro">cerebro</a> - 11/23/2016</h5>
+</div>
+    
+    
+    <a href="/jekyll-avalon-test/tags/documentation"><div class="chip waves-effect waves-red">documentation</div></a>
+    
+    
+    
+    <a href="/jekyll-avalon-test/tags/cerebro"><div class="chip waves-effect waves-red">cerebro</div></a>
+    
+    
+</div>
+<div class="row">
+<div class="sect1">
+<h2 id="modules">Modules</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>dashboard</code>: Cerebro dashboard application</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Angular 2 application written in Typescript</p>
+</li>
+<li>
+<p>Frontend over Cerebro services</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>services</code>: Cerebro Webservices</p>
+<div class="ulist">
+<ul>
+<li>
+<p>REST Webservices powered by Spring-Boot in Java</p>
+</li>
+<li>
+<p>Backoffice layer between Cerebro dashboard and Seyren REST API</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>docker</code>: Cerebro docker configuration</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="run_cerebro">Run Cerebro</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To run Cerebro locally, please read the instructions in submodules <code>DEV</code> files.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="docker_configuration">Docker configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cerebro can run with Docker and Docker-Compose configurations (eg. on Katana-Cloud platforms), but it should not be used for local
+run/debug (it is just not convenient to link/debug).</p>
+</div>
+<div class="sect2">
+<h3 id="use_docker_locally">Use Docker locally</h3>
+<div class="paragraph">
+<p>If you want to use docker to run Cerebro locally, you must do the following actions</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You have to edit Dockerfile and docker-compose.yml files. Uncomment line below "local conf" and comment line below "release conf" (do not forget to change the project version in Dockerfile)</p>
+</li>
+<li>
+<p><code>mvn clean package</code></p>
+</li>
+<li>
+<p>If you are on windows, execute:</p>
+<div class="literalblock">
+<div class="content">
+<pre>export CEREBRO_SERVICES_HOST=$(echo ${DOCKER_HOST} | awk -F/ '{print $3}' | awk -F: '{print $1}')`</pre>
+</div>
+</div>
+</li>
+<li>
+<p><code>docker-compose build</code></p>
+</li>
+<li>
+<p><code>docker-compose up</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Access started containers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Services: <a href="http://localhost:3333/cerebro-services" class="bare">http://localhost:3333/cerebro-services</a></p>
+</li>
+<li>
+<p>Dashboard: <a href="http://localhost:3334/cerebro" class="bare">http://localhost:3334/cerebro</a> (<a href="http://localhost:3333/cerebro-services/health" class="bare">http://localhost:3333/cerebro-services/health</a> to check status, details in the <em>Troubleshooting</em> section)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Once containers are started, use <code>Ctrl+C</code> to stop them. To run containers as daemon (not printing the logs), add the <code>-d</code> parameter to Docker-Compose:
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ docker-compose up -d</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cleanup">Cleanup</h4>
+<div class="paragraph">
+<p>To stop Docker containers:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ docker-compose down</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sometimes it is necessary to delete previous images using <code>docker-compose rm</code> and <code>docker-compose rmi</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>// Show running containers
+$ docker ps
+// Show all containers (add -q to print only IDs)
+$ docker ps -a
+// Umount container
+$ docker rm &lt;container_ID&gt;
+// Show all images
+$ docker images
+// Delete image
+$ docker rmi &lt;image_name&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="troubleshooting">Troubleshooting</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="dt_docker_registry_certificate">DT docker registry certificate</h3>
+<div class="paragraph">
+<p>See <a href="https://doc-vsct.vsct.fr/display/DTD/VSCT+Docker+factory" class="bare">https://doc-vsct.vsct.fr/display/DTD/VSCT+Docker+factory</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="check_services_status">Check services status</h3>
+<div class="paragraph">
+<p>Go to <a href="http://localhost:3333/cerebro-services/health" class="bare">http://localhost:3333/cerebro-services/health</a> to check services status.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+On Windows, remember to replace <code>localhost</code> by the Docker VM IP (for instance <code>192.168.99.100</code>).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The response should be something like:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{
+    "status": "UP",
+    "seyren": {
+        "status": "UP"
+    },
+    "diskSpace": {
+        "status": "UP",
+        "total": 99725537280,
+        "free": 75563044864,
+        "threshold": 10485760
+    }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When Seyren backend is <code>DOWN</code>, it can&#8217;t be reached and services will be <code>DOWN</code> too.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </div>
+</main>
+<footer class="page-footer teal">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
+                    content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2016 Avalon
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js" defer></script>
+<script src="/jekyll-avalon-test/js/load.js" defer></script>
+
+<script src="/jekyll-avalon-test/js/prism.js"></script>
+
+</body>
+</html>

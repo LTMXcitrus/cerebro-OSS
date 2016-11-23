@@ -1,0 +1,103 @@
+---
+layout: post
+title:  Cerebro dev doc
+categories:
+    - cerebro
+tags:
+    - documentation
+    - cerebro
+thumbnail: /img/cerebro.jpg
+cover: /img/cerebro.jpg
+prism: true
+---
+
+= *DEVELOPER / CONTRIBUTOR NOTES*
+
+== Modules
+
+* `dashboard`: Cerebro dashboard application
+** Angular 2 application written in Typescript
+** Frontend over Cerebro services
+* `services`: Cerebro Webservices
+** REST Webservices powered by Spring-Boot in Java
+** Backoffice layer between Cerebro dashboard and Seyren REST API
+* `docker`: Cerebro docker configuration
+
+== Run Cerebro
+
+To run Cerebro locally, please read the instructions in submodules `DEV` files.
+
+== Docker configuration
+
+Cerebro can run with Docker and Docker-Compose configurations (eg. on Katana-Cloud platforms), but it should not be used for local
+run/debug (it is just not convenient to link/debug).
+
+=== Use Docker locally
+
+If you want to use docker to run Cerebro locally, you must do the following actions
+
+* You have to edit Dockerfile and docker-compose.yml files. Uncomment line below "local conf" and comment line below "release conf" (do not forget to change the project version in Dockerfile)
+* `mvn clean package`
+* If you are on windows, execute:
+
+    export CEREBRO_SERVICES_HOST=$(echo ${DOCKER_HOST} | awk -F/ '{print $3}' | awk -F: '{print $1}')`
+
+* `docker-compose build`
+* `docker-compose up`
+
+Access started containers:
+
+* Services: http://localhost:3333/cerebro-services
+* Dashboard: http://localhost:3334/cerebro (http://localhost:3333/cerebro-services/health to check status, details in the _Troubleshooting_ section)
+
+NOTE: Once containers are started, use `Ctrl+C` to stop them. To run containers as daemon (not printing the logs), add the `-d` parameter to Docker-Compose:
+
+    $ docker-compose up -d
+
+==== Cleanup
+
+To stop Docker containers:
+
+    $ docker-compose down
+
+Sometimes it is necessary to delete previous images using `docker-compose rm` and `docker-compose rmi`:
+
+    // Show running containers
+    $ docker ps
+    // Show all containers (add -q to print only IDs)
+    $ docker ps -a
+    // Umount container
+    $ docker rm <container_ID>
+    // Show all images
+    $ docker images
+    // Delete image
+    $ docker rmi <image_name>
+
+== Troubleshooting
+
+=== DT docker registry certificate
+
+See https://doc-vsct.vsct.fr/display/DTD/VSCT+Docker+factory
+
+=== Check services status
+
+Go to http://localhost:3333/cerebro-services/health to check services status.
+
+NOTE: On Windows, remember to replace `localhost` by the Docker VM IP (for instance `192.168.99.100`).
+
+The response should be something like:
+
+    {
+        "status": "UP",
+        "seyren": {
+            "status": "UP"
+        },
+        "diskSpace": {
+            "status": "UP",
+            "total": 99725537280,
+            "free": 75563044864,
+            "threshold": 10485760
+        }
+    }
+
+When Seyren backend is `DOWN`, it can't be reached and services will be `DOWN` too.
