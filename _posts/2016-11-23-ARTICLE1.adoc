@@ -6,8 +6,8 @@ categories:
 tags:
     - article
     - cerebro
-thumbnail: /img/monitoring.jpg
-cover: /img/monitoring.jpg
+thumbnail: /img/space.jpg
+cover: /img/space.jpg
 prism: true
 ---
 

@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  article 1, la suite de l'épopée!
+title:  article 2, la suite de l'épopée!
 categories:
     - article
 tags:
     - article
     - cerebro
-thumbnail: /img/space.jpg
-cover: /img/space.jpg
+thumbnail: /img/monitoring.png
+cover: /img/monitoring.png
 prism: true
 ---
 
