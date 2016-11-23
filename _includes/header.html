@@ -1,7 +1,10 @@
 <header>
     <nav>
         <div class="nav-wrapper teal">
-            <div class="container"><a href="#" data-activates="nav-bar" class="button-collapse"><i class="material-icons">menu</i></a></div>
+            <div class="container">
+                <a id="logo-container" href="#" class="brand-logo white-text center">Super Vision</a>
+                <a href="#" data-activates="nav-bar" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
             <ul class="right hide-on-med-and-down ">
                 {% for link in site.navigation %}
                 {% if page.url == link.url %}<li class="active">{% else %}<li>{% endif %}

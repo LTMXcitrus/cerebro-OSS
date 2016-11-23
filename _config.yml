@@ -13,12 +13,12 @@ sass:
 paginate: 12
 paginate_path: "/:num/"
 
-author_img_s: /img/author_s.png
-author_img: /img/author.png
+author_img_s: /img/francois.png
+author_img: /img/francois.png
 
 navigation:
   - text: Home
-    url: https://ltmxcitrus.github.io/Umbrella-Super-Vision-OSS/
+    url: /home.html
   - text: Docs
     url: /
   - text: Categories
