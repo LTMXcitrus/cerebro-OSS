@@ -1,0 +1,14 @@
+---
+layout: post
+title:  article 1, le début d'une épopée!
+categories:
+    - article
+tags:
+    - article
+    - cerebro
+thumbnail: /img/monitoring.jpg
+cover: /img/monitoring.jpg
+prism: true
+---
+
+Ca n'est que le début!

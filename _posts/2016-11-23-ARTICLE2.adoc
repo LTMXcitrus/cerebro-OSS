@@ -1,0 +1,14 @@
+---
+layout: post
+title:  article 1, la suite de l'épopée!
+categories:
+    - article
+tags:
+    - article
+    - cerebro
+thumbnail: /img/space.jpg
+cover: /img/space.jpg
+prism: true
+---
+
+ça continue!
