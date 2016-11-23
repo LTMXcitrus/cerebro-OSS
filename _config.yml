@@ -1,10 +1,11 @@
 title: Your awesome title
 email: your-email@domain.com
 description: description
-baseurl: /Jekyll-Avalon
+baseurl: /jekyll-avalon-test
 url: http://joshuaavalon.github.io
 twitter_username: joshuaavalon
 github_username:  joshuaavalon
+destination: ./docs
 
 sass:
   style: compressed
@@ -17,6 +18,8 @@ author_img: /img/author.png
 
 navigation:
   - text: Home
+    url: https://ltmxcitrus.github.io/Umbrella-Super-Vision-OSS/
+  - text: Docs
     url: /
   - text: Categories
     url: /categories.html

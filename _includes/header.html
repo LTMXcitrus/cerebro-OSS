@@ -1,10 +1,15 @@
 <header>
     <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper teal">
             <div class="container"><a href="#" data-activates="nav-bar" class="button-collapse"><i class="material-icons">menu</i></a></div>
             <ul class="right hide-on-med-and-down ">
                 {% for link in site.navigation %}
-                {% if page.url == link.url %}<li class="active">{% else %}<li>{% endif %}<a href="{{ link.url | prepend: site.baseurl }}">{{ link.text }}</a></li>
+                {% if page.url == link.url %}<li class="active">{% else %}<li>{% endif %}
+                {% if link.url contains "https://"%}<a href="{{ link.url }}">{{ link.text }}</a>
+                {% else %}
+                <a href="{{ link.url | prepend: site.baseurl }}">{{ link.text }}</a>
+                {% endif %}
+                </li>
                 {% endfor %}
             </ul>
             <ul class="side-nav" id="nav-bar">
