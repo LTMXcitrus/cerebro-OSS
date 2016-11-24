@@ -1,6 +1,7 @@
 ---
 layout: base
 ---
+<div class="container">
 <div class="row">
 {% for keypair in site.tags %}
 {% assign tag = keypair | first%}
@@ -8,4 +9,5 @@ layout: base
 <a href="{{ tag | prepend: '/tags/' | prepend: site.baseurl }}"><div class="chip waves-effect waves-red">{{ tag }}</div></a>
 {% endif %}
 {% endfor %}
+</div>
 </div>
