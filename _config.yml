@@ -1,7 +1,7 @@
 title: Super Vision - Cerebro
 email: super@vision
 description: description
-baseurl: /jekyll-avalon-test
+baseurl: /cerebro-OSS
 url: http://joshuaavalon.github.io
 destination: ./docs
 
